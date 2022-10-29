@@ -1,0 +1,64 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block tp_final_title %}
+Credit
+{% endblock %}
+
+{% block tp_final_header %}
+    <header class="masthead" style="background-image: url('../../static/home/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-15 col-lg-16 col-xl-14">
+                    <div class="site-heading">
+                        <h1>Listado de limite de credito</h1>
+                        <span class="subheading">Entrega Final - Diego Muro</span>
+                    </div>
+                </div>
+            </div>
+            <a class="button_custom" href="{% url 'credit:credit-add' %}">Crear nuevo limite de credito</a>
+        </div>
+    </header>
+{% endblock %}
+
+{% block tp_final_content %}
+    {% for credit in credits %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <h2 class="post-title"> Descripcion de riesgo crediticio: {{ credit.code }}  {{ credit.description }}</h2>
+            <h4 class="post-subtitle">Monto de credito permitido: {{ credit.amount }}</h4>
+            <p class="post-meta">
+                Creado por
+                <a href="#!">Start Bootstrap</a> 
+                en {{ credit.created_at }}
+            </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+    <!--Pagination-->
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if credits.has_previous %}
+                    <a href="?page=1">&laquo; first</a> |
+                    <a href="?page={{ credits.previous_page_number }}">previous</a> |
+                {% endif %}
+    
+                {% if credits.paginator.num_pages > 1 %}
+                <span class="current">
+                    Page {{ credits.number }} of {{ credits.paginator.num_pages }} |
+                </span>
+                {% endif %}
+    
+                {% if credits.has_next %}
+                    <a href="?page={{ credits.next_page_number }}">next</a> |
+                    <a href="?page={{ credits.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <!--end of Pagination-->
+{% endblock %}
+
+

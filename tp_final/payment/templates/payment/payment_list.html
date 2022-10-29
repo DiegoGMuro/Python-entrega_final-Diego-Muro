@@ -1,0 +1,62 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block tp_final_title %}
+Payment
+{% endblock %}
+
+{% block tp_final_header %}
+    <header class="masthead" style="background-image: url('../../static/home/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-15 col-lg-16 col-xl-14">
+                    <div class="site-heading">
+                        <h1>Listado de condiciones de pago</h1>
+                        <span class="subheading">Entrega Final - Diego Muro</span>
+                    </div>
+                </div>
+            </div>
+            <a class="button_custom" href="{% url 'payment:payment-add' %}">Crear nueva condicion de pago</a>
+        </div>
+    </header>
+{% endblock %}
+
+{% block tp_final_content %}
+    {% for payment in payments %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <h2 class="post-title">Descripcion de condicion de pago: {{ payment.code }}  {{ payment.name }}</h2>
+            <h4 class="post-title">Dias permitidos: {{ payment.days }}</h4>
+            <p class="post-meta">
+                Creado por
+                <a href="#!">Start Bootstrap</a> 
+                en {{ payment.created_at }}
+            </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+    <!--Pagination-->
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if payments.has_previous %}
+                    <a href="?page=1">&laquo; first</a> |
+                    <a href="?page={{ payments.previous_page_number }}">previous</a> |
+                {% endif %}
+    
+                {% if payments.paginator.num_pages > 1 %}
+                <span class="current">
+                    Page {{ payments.number }} of {{ payments.paginator.num_pages }} |
+                </span>
+                {% endif %}
+    
+                {% if payments.has_next %}
+                    <a href="?page={{ payments.next_page_number }}">next</a> |
+                    <a href="?page={{ payments.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <!--end of Pagination-->
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block tp_final_title %}
+Customer
+{% endblock %}
+
+{% block tp_final_header %}
+    <header class="masthead" style="background-image: url('../../static/home/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-15 col-lg-16 col-xl-14">
+                    <div class="site-heading">
+                        <h1>Listado de clientes</h1>
+                        <span class="subheading">Entrega Final - Diego Muro</span>
+                    </div>
+                </div>
+            </div>
+            <a class="button_custom" href="{% url 'customer:customer-add' %}">Crear nuevo cliente</a>
+        </div>
+    </header>
+{% endblock %}
+
+
+{% block tp_final_content %}
+    {% for customer in customers %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <h2 class="post-title">Este es el cliente: {{ customer.code }}  {{ customer.name }}</h2>
+            <h4 class="post-title">Email: {{ customer.email }}</h4>
+            <h4 class="post-subtitle"> Segmento: {{ customer.segment }}</h4>
+            <p class="post-meta">
+                Creado por
+                <a href="#!">Start Bootstrap</a> 
+                en {{ customer.created_at }}
+            </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+    <!--Pagination-->
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if customers.has_previous %}
+                    <a href="?page=1">&laquo; first</a> |
+                    <a href="?page={{ customers.previous_page_number }}">previous</a> |
+                {% endif %}
+    
+                {% if customers.paginator.num_pages > 1 %}
+                <span class="current">
+                    Page {{ customers.number }} of {{ customers.paginator.num_pages }} |
+                </span>
+                {% endif %}
+    
+                {% if customers.has_next %}
+                    <a href="?page={{ customers.next_page_number }}">next</a> |
+                    <a href="?page={{ customers.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <!--end of Pagination-->
+    {% endblock %}
+    
+    
+    
