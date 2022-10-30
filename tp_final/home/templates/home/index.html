@@ -48,7 +48,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Entrega Final - Diego Muro</h1>
+                            <h2>Entrega Final - Diego Muro</h2>
                             <span class="subheading"> Coder House 2022 - Python</span>
                         </div>
                     </div>
@@ -80,11 +80,11 @@
                     {% block tp_final_content %}
 
                     <!-- Buscador -->
-                    <h2>Buscador de clientes</h2>
-                    <form action="{% url 'home:search' %}" method="GET">
+                    <h3>Buscador de clientes</h3>
+                    <form action="{% url 'home:searchc' %}" method="GET">
                         <div>
-                            <input type="text" name="search_param" id="customer_code_or_name" placeholder="Buscar.."
-                            {% if search_param %} value="{{ search_param }}" {% endif %}
+                            <input type="text" name="search_customer" id="customer_code_or_name" placeholder="Buscar.."
+                            {% if search_customer %} value="{{ search_customer }}" {% endif %}
                             >
                             <input type="submit" value="Buscar">
                             <a style="color: blue" href="{% url 'home:index' %}"><i class="fa fa-undo"></i></a>
@@ -98,8 +98,8 @@
                     {% for customer in customers %}
                         <!-- Post preview-->
                         <div class="post-preview">
-                            <h3 class="post-title">Este es el cliente {{ customer.name }}</h3>
-                            <h4 class="post-subtitle">Que tiene el código: {{ customer.code }}</h4>
+                            <h4 class="post-title">Este es el cliente {{ customer.name }}</h4>
+                            <h6 class="post-subtitle">Que tiene el código: {{ customer.code }}</h6>
                             <p class="post-meta">
                                 Creado por
                                 <a href="#!">Start Bootstrap</a> 
@@ -110,11 +110,11 @@
                         <hr class="my-4" />
                     {% endfor %}
                     {% endif %}
-                    <h2>Buscador de Productos</h2>
-                    <form action="{% url 'home:search' %}" method="GET">
+                    <h3>Buscador de Productos</h3>
+                    <form action="{% url 'home:searchp' %}" method="GET">
                         <div>
-                            <input type="text" name="search_param" id="product_code_or_description" placeholder="Buscar.."
-                            {% if search_param %} value="{{ search_param }}" {% endif %}
+                            <input type="text" name="search_product" id="product_code_or_description" placeholder="Buscar.."
+                            {% if search_product %} value="{{ search_product }}" {% endif %}
                             >
                             <input type="submit" value="Buscar">
                             <a style="color: blue" href="{% url 'home:index' %}"><i class="fa fa-undo"></i></a>
@@ -128,8 +128,8 @@
                     {% for product in products %}
                         <!-- Post preview-->
                         <div class="post-preview">
-                            <h3 class="post-title">Este es el producto {{ product.description }}</h3>
-                            <h4 class="post-subtitle">Que tiene el código: {{ product.code }}</h4>
+                            <h4 class="post-title">Este es el producto {{ product.description }}</h4>
+                            <h6 class="post-subtitle">Que tiene el código: {{ product.code }}</h6>
                             <p class="post-meta">
                                 Creado por
                                 <a href="#!">Start Bootstrap</a> 

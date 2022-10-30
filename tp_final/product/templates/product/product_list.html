@@ -11,8 +11,8 @@ Product
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-15 col-lg-16 col-xl-14">
                     <div class="site-heading">
-                        <h1>Listado de productos</h1>
-                        <span class="subheading">Entrega Final - Diego Muro</span>
+                        <h2>Listado de productos</h2>
+                        <span class="subheading">Entrega Final - Diego Muro 2022</span>
                     </div>
                 </div>
             </div>
@@ -25,8 +25,8 @@ Product
     {% for product in products %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h2 class="post-title">Este es el producto: {{ product.code }}  {{ product.description }}</h2>
-            <h4 class="post-subtitle">Cantidades vendidas ultimo mes: {{ product.unit_sales }}</h4>
+            <h3 class="post-title">Este es el producto: {{ product.code }} | {{ product.description }}</h3>
+            <h5 class="post-subtitle">Cantidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 

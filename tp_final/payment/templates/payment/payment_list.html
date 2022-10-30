@@ -11,8 +11,8 @@ Payment
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-15 col-lg-16 col-xl-14">
                     <div class="site-heading">
-                        <h1>Listado de condiciones de pago</h1>
-                        <span class="subheading">Entrega Final - Diego Muro</span>
+                        <h2>Listado de condiciones de pago</h2>
+                        <span class="subheading">Entrega Final - Diego Muro 2022</span>
                     </div>
                 </div>
             </div>
@@ -25,8 +25,8 @@ Payment
     {% for payment in payments %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h2 class="post-title">Descripcion de condicion de pago: {{ payment.code }}  {{ payment.name }}</h2>
-            <h4 class="post-title">Dias permitidos: {{ payment.days }}</h4>
+            <h3 class="post-title">Descripcion condicion de pago: {{ payment.code }} | {{ payment.name }}</h3>
+            <h5 class="post-title">Dias permitidos: {{ payment.days }}</h5>
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 

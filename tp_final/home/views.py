@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from customer.models import Customer
-#from product.models import Product
+from product.models import Product
 
 def index(request):
     return render(
@@ -13,18 +13,18 @@ def index(request):
         template_name="home/index.html",
     )
     
-def search(request):
-    search_param = request.GET["search_param"]
-    print("search: ", search_param)
+def searchc(request):
+    search_customer = request.GET["search_customer"]
+    print("searchc: ", search_customer)
     context_dict = dict()
-    if search_param:
-        query = Q(name__contains=search_param)
-        query.add(Q(code__contains=search_param), Q.OR)
+    if search_customer:
+        query = Q(name__contains=search_customer)
+        query.add(Q(code__contains=search_customer), Q.OR)
         customers = Customer.objects.filter(query)
         context_dict.update(
             {
                 "customers": customers,
-                "search_param": search_param,
+                "search_customer": search_customer,
             }
         )
     return render(
@@ -33,28 +33,19 @@ def search(request):
         template_name="home/index.html",
     )
     
-
-from product.models import Product
     
-def index(request):
-    return render(
-        request=request,
-        context={},
-        template_name="home/index.html",
-    )
-    
-def search(request):
-    search_param = request.GET["search_param"]
-    print("search: ", search_param)
+def searchp(request):
+    search_product = request.GET["search_product"]
+    print("searchp: ", search_product)
     context_dict = dict()
-    if search_param:
-        query = Q(description__contains=search_param)
-        query.add(Q(code__contains=search_param), Q.OR)
+    if search_product:
+        query = Q(description__contains=search_product)
+        query.add(Q(code__contains=search_product), Q.OR)
         products = Product.objects.filter(query)
         context_dict.update(
             {
                 "products": products,
-                "search_param": search_param,
+                "search_product": search_product,
             }
         )
     return render(

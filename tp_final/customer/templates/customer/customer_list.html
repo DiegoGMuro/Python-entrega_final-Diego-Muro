@@ -11,8 +11,8 @@ Customer
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-15 col-lg-16 col-xl-14">
                     <div class="site-heading">
-                        <h1>Listado de clientes</h1>
-                        <span class="subheading">Entrega Final - Diego Muro</span>
+                        <h2>Listado de clientes</h2>
+                        <span class="subheading">Entrega Final - Diego Muro 2022</span>
                     </div>
                 </div>
             </div>
@@ -26,9 +26,9 @@ Customer
     {% for customer in customers %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h2 class="post-title">Este es el cliente: {{ customer.code }}  {{ customer.name }}</h2>
-            <h4 class="post-title">Email: {{ customer.email }}</h4>
-            <h4 class="post-subtitle"> Segmento: {{ customer.segment }}</h4>
+            <h3 class="post-title">Este es el cliente: {{ customer.code }} | {{ customer.name }}</h3>
+            <h5 class="post-title">Email: {{ customer.email }}</h5>
+            <h5 class="post-subtitle"> Segmento: {{ customer.segment }}</h5>
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
