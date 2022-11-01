@@ -1,5 +1,6 @@
-# entrega_final-Diego-Muro    CoderHouse2022 - Curso Python Comision 43765
-## Instrucciones para ejecutar este proyecto:
+# Entrega_final-Diego-Muro    CoderHouse2022 - Curso Python Comision 43765
+
+# Instrucciones para ejecutar este proyecto:
 
 
 ### 1. Abrir Git Bash para `Windows` o una terminal para `Linux/Unix`.
@@ -68,17 +69,19 @@ Las aplicaciones en las que se dividio la pagina son :
 
 La seccion de HOME tiene el buscador de CLIENTES y PRODUCTOS
 
-![image](https://user-images.githubusercontent.com/113110798/198755050-285d7398-0ffe-4d7e-8a4f-48f5f2a0d1cb.png)
+![image](https://user-images.githubusercontent.com/113110798/199346071-1aa5c572-ac0b-41bc-abd8-6a98f44c9b18.png)
 
 
 Cada aplicacion (CLIENTES / PRODUCTOS / LIMITES DE CREDITO / CONDICIONES DE PAGO) Contiene la informacion de cada aplicacion
 
-![image](https://user-images.githubusercontent.com/113110798/198755218-db4a9fcf-79c7-4a2c-bcf5-d2f901c044d6.png)
+![image](https://user-images.githubusercontent.com/113110798/199346390-57a9ca9d-0564-4aba-a7d1-c64865e43d4b.png)
+
 
 
 La misma fue cargada a la BD tanto por los formularios de la pagina como por el menu ADMIN de Django
 
-![image](https://user-images.githubusercontent.com/113110798/198755225-74965b82-0329-4e28-8170-2ae92ff18ed5.png)
+![image](https://user-images.githubusercontent.com/113110798/199346592-7dff7a3a-a680-44e2-b0ec-b14b62b8b3fc.png)
+
 
 ![image](https://user-images.githubusercontent.com/113110798/198755229-0bf2e7e7-99e7-4f76-844a-c14baf9adcf9.png)
 
