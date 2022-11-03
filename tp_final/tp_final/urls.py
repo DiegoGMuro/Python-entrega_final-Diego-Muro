@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from credit.views import create_credit
-from customer.views import create_customer
+#from customer.views import create_customer
+from customer.views import customer_create
 from payment.views import create_payment
 from product.views import create_product 
 

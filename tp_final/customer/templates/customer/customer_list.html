@@ -27,9 +27,7 @@ Customer list
         <!-- Post preview-->
         <div class="post-preview">
             <a href="{% url 'customer:customer-detail' customer.id %}"> 
-                <h3 class="post-title">Este es el cliente: {{ customer.code }} | {{ customer.name }}</h3>
-                <h5 class="post-title">Email: {{ customer.email }}</h5>
-                <h5 class="post-subtitle"> Segmento: {{ customer.segment }}</h5>
+                <h6 class="post-title"> Cod: {{ customer.code }} | Cliente {{ customer.name }}</h6>
             </a>    
             <p class="post-meta">
                 Creado por

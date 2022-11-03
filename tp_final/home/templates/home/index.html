@@ -98,8 +98,9 @@
                     {% for customer in customers %}
                         <!-- Post preview-->
                         <div class="post-preview">
-                            <h4 class="post-title">Este es el cliente {{ customer.name }}</h4>
-                            <h6 class="post-subtitle">Que tiene el código: {{ customer.code }}</h6>
+                            <a href="{% url 'customer:customer-detail' customer.id %}">                            
+                                <h6 class="post-title"> Cod: {{ customer.code }} | Cliente {{ customer.name }}</h6>
+                            </a>                            
                             <p class="post-meta">
                                 Creado por
                                 <a href="#!">Start Bootstrap</a> 

@@ -27,7 +27,7 @@ def customers(request):
     )
 
 
-def create_customer(request):
+def customer_create(request):                        # reemplazo de create_customer por customer_create
     if request.method == "POST":
         customer_form = CustomerForm(request.POST)
         if customer_form.is_valid():
