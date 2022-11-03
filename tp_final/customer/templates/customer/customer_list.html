@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tp_final_title %}
-Customer
+Customer list
 {% endblock %}
 
 {% block tp_final_header %}
@@ -23,12 +23,14 @@ Customer
 
 
 {% block tp_final_content %}
-    {% for customer in customers %}
+    {% for customer in customer_list %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h3 class="post-title">Este es el cliente: {{ customer.code }} | {{ customer.name }}</h3>
-            <h5 class="post-title">Email: {{ customer.email }}</h5>
-            <h5 class="post-subtitle"> Segmento: {{ customer.segment }}</h5>
+            <a href="{% url 'customer:customer-detail' customer.id %}"> 
+                <h3 class="post-title">Este es el cliente: {{ customer.code }} | {{ customer.name }}</h3>
+                <h5 class="post-title">Email: {{ customer.email }}</h5>
+                <h5 class="post-subtitle"> Segmento: {{ customer.segment }}</h5>
+            </a>    
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
@@ -38,30 +40,58 @@ Customer
         <!-- Divider-->
         <hr class="my-4" />
     {% endfor %}
+
     <!--Pagination-->
     <div class="container p-4">
         <div class="pagination justify-content-center">
             <span class="step-links">
-                {% if customers.has_previous %}
+                {% if customer_list.has_previous %}
                     <a href="?page=1">&laquo; first</a> |
-                    <a href="?page={{ customers.previous_page_number }}">previous</a> |
+                    <a href="?page={{ customer_list.previous_page_number }}">previous</a> |
                 {% endif %}
     
-                {% if customers.paginator.num_pages > 1 %}
+                {% if customer_list.paginator.num_pages > 1 %}
                 <span class="current">
-                    Page {{ customers.number }} of {{ customers.paginator.num_pages }} |
+                    Page {{ customer_list.number }} of {{ customer_list.paginator.num_pages }} |
                 </span>
                 {% endif %}
     
-                {% if customers.has_next %}
-                    <a href="?page={{ customers.next_page_number }}">next</a> |
-                    <a href="?page={{ customers.paginator.num_pages }}">last &raquo;</a>
+                {% if customer_list.has_next %}
+                    <a href="?page={{ customer_list.next_page_number }}">next</a> |
+                    <a href="?page={{ customer_list.paginator.num_pages }}">last &raquo;</a>
                 {% endif %}
             </span>
         </div>
     </div>
     <!--end of Pagination-->
-    {% endblock %}
-    
+
+    <!--Pagination Class Based Views-->
+{% if is_paginated %}
+<div class="container p-4">
+    <div class="pagination justify-content-center">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a> |
+                <a href="?page={{ customer_list.previous_page_number }}">previous</a> |
+            {% endif %}
+
+            {% if page_obj.paginator.num_pages > 1 %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+            </span>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a> |
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endif %}
+<!--end of Pagination-->
+
+{% endblock %}
+ 
     
     

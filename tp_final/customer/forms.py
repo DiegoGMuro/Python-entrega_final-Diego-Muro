@@ -1,7 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 
+from customer.models import Customer
 
-class CustomerForm(forms.Form):
+class CustomerForm(forms.ModelForm):
     code = forms.IntegerField(
         label="Código:",
         required=False,
@@ -38,7 +40,7 @@ class CustomerForm(forms.Form):
     segment = forms.CharField(
         label="Segmento",
         required=False,
-        widget=forms.TextInput(
+        widget=CKEditorWidget(
             attrs={
                 "class": "customer-segment",
                 "placeholder": "segmento del cliente",
@@ -46,3 +48,7 @@ class CustomerForm(forms.Form):
             }
         ),
     )
+ 
+    class Meta:
+        model = Customer
+        fields = ["code", "name", "email", "segment"]
