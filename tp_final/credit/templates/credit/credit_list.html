@@ -25,8 +25,8 @@ Credit
     {% for credit in credits %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h3 class="post-title"> Descripcion riesgo crediticio: {{ credit.code }} | {{ credit.description }}</h3>
-            <h5 class="post-subtitle">Monto de credito permitido: {{ credit.amount }}</h5>
+            <h3 class="post-title"> Cod: {{ credit.code }} | Riesgo: {{ credit.description }}</h3>
+            <h5 class="post-subtitle"> Credito permitido ($): {{ credit.amount }}</h5>
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
