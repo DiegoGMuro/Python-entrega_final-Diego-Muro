@@ -38,7 +38,7 @@ class CustomerForm(forms.ModelForm):
         ),
     )
     segment = forms.CharField(
-        label="Segmento",
+        label="Segmento (Agregar Regiones)",
         required=False,
         widget=CKEditorWidget(
             attrs={

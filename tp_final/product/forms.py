@@ -3,7 +3,7 @@ from django import forms
 
 from product.models import Product
 
-class ProductForm(forms.Form):
+class ProductForm(forms.ModelForm):
     code = forms.IntegerField(
         label="Código:",
         required=False,
