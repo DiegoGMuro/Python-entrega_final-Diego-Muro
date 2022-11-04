@@ -1,5 +1,7 @@
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 
+from product.models import Product
 
 class ProductForm(forms.Form):
     code = forms.IntegerField(
@@ -35,3 +37,6 @@ class ProductForm(forms.Form):
             }
         ),
     )    
+    class Meta:
+        model = Product
+        fields = ["code", "description", "unit_sales"]    

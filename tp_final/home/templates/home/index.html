@@ -129,8 +129,10 @@
                     {% for product in products %}
                         <!-- Post preview-->
                         <div class="post-preview">
-                            <h4 class="post-title">Este es el producto {{ product.description }}</h4>
-                            <h6 class="post-subtitle">Que tiene el código: {{ product.code }}</h6>
+                            <a href="{% url 'product:product-detail' product.id %}">
+                                 <h3 class="post-title">Cod: {{ product.code }} | Producto: {{ product.description }} </h3>
+                                 <h5 class="post-subtitle">Unidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
+                            </a>     
                             <p class="post-meta">
                                 Creado por
                                 <a href="#!">Start Bootstrap</a> 

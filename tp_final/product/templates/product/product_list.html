@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tp_final_title %}
-Product
+Product list
 {% endblock %}
 
 {% block tp_final_header %}
@@ -22,11 +22,13 @@ Product
 {% endblock %}
 
 {% block tp_final_content %}
-    {% for product in products %}
+    {% for product in product_list %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h3 class="post-title"> Cod: {{ product.code }} | Producto: {{ product.description }}</h3>
-            <h5 class="post-subtitle"> Unidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
+            <a href="{% url 'product:product-detail' product.id %}"> 
+                <h3 class="post-title"> Cod: {{ product.code }} | Producto: {{ product.description }}</h3>
+                <h5 class="post-subtitle"> Unidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
+            </a>
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
@@ -36,28 +38,57 @@ Product
         <!-- Divider-->
         <hr class="my-4" />
     {% endfor %}
+
     <!--Pagination-->
     <div class="container p-4">
         <div class="pagination justify-content-center">
             <span class="step-links">
-                {% if products.has_previous %}
+                {% if product_list.has_previous %}
                     <a href="?page=1">&laquo; first</a> |
-                    <a href="?page={{ products.previous_page_number }}">previous</a> |
+                    <a href="?page={{ product_list.previous_page_number }}">previous</a> |
                 {% endif %}
     
-                {% if products.paginator.num_pages > 1 %}
+                {% if product_list.paginator.num_pages > 1 %}
                 <span class="current">
-                    Page {{ products.number }} of {{ products.paginator.num_pages }} |
+                    Page {{ product_list.number }} of {{ product_list.paginator.num_pages }} |
                 </span>
                 {% endif %}
     
-                {% if products.has_next %}
-                    <a href="?page={{ products.next_page_number }}">next</a> |
-                    <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
+                {% if product_list.has_next %}
+                    <a href="?page={{ product_list.next_page_number }}">next</a> |
+                    <a href="?page={{ product_list.paginator.num_pages }}">last &raquo;</a>
                 {% endif %}
             </span>
         </div>
     </div>
     <!--end of Pagination-->
+
+
+    <!--Pagination Class Based Views-->
+    {% if is_paginated %}
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a> |
+                    <a href="?page={{ product_list.previous_page_number }}">previous</a> |
+                {% endif %}
+    
+                {% if page_obj.paginator.num_pages > 1 %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+                </span>
+                {% endif %}
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a> |
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    {% endif %}
+    <!--end of Pagination--> 
+
 {% endblock %}
 

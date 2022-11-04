@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from credit.views import create_credit
-#from customer.views import create_customer
 from customer.views import customer_create
+#from customer.views import create_customer
+from product.views import product_create
+#from product.views import create_product 
+from credit.views import create_credit
 from payment.views import create_payment
-from product.views import create_product 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
