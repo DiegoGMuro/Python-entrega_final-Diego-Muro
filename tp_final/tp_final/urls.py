@@ -21,7 +21,8 @@ from customer.views import customer_create
 from product.views import product_create
 #from product.views import create_product 
 from credit.views import create_credit
-from payment.views import create_payment
+from payment.views import payment_create
+#from payment.views import create_payment
 
 urlpatterns = [
     path('admin/', admin.site.urls),

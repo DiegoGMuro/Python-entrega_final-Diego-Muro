@@ -1,7 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 
+from payment.models import Payment
 
-class PaymentForm(forms.Form):
+class PaymentForm(forms.ModelForm):
     code = forms.IntegerField(
         label="Codigo",
         required=False,
@@ -35,3 +37,6 @@ class PaymentForm(forms.Form):
             }
         ),
     )    
+    class Meta:
+        model = Payment
+        fields = ["code", "name", "days"]    

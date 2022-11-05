@@ -1,5 +1,7 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from ckeditor.fields import RichTextField
+from datetime import datetime
 
 # Create your models here.
 class Payment(models.Model):

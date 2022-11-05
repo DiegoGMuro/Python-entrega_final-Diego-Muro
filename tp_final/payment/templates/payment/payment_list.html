@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tp_final_title %}
-Payment
+Payment list
 {% endblock %}
 
 {% block tp_final_header %}
@@ -21,12 +21,15 @@ Payment
     </header>
 {% endblock %}
 
+
 {% block tp_final_content %}
-    {% for payment in payments %}
+    {% for payment in payment_list %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h3 class="post-title"> Cod: {{ payment.code }} | Cond Pago: {{ payment.name }}</h3>
-            <h5 class="post-title">Dias permitidos: {{ payment.days }}</h5>
+            <a href="{% url 'payment:payment-detail' payment.id %}">  
+                <h3 class="post-title"> Cod: {{ payment.code }} | Cond Pago: {{ payment.name }}</h3>
+                <h5 class="post-subtitle">Dias permitidos: {{ payment.days }}</h5>
+            </a>     
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
@@ -36,27 +39,55 @@ Payment
         <!-- Divider-->
         <hr class="my-4" />
     {% endfor %}
+
     <!--Pagination-->
     <div class="container p-4">
         <div class="pagination justify-content-center">
             <span class="step-links">
-                {% if payments.has_previous %}
+                {% if payment_list.has_previous %}
                     <a href="?page=1">&laquo; first</a> |
-                    <a href="?page={{ payments.previous_page_number }}">previous</a> |
+                    <a href="?page={{ payment_list.previous_page_number }}">previous</a> |
                 {% endif %}
     
-                {% if payments.paginator.num_pages > 1 %}
+                {% if payment_list.paginator.num_pages > 1 %}
                 <span class="current">
-                    Page {{ payments.number }} of {{ payments.paginator.num_pages }} |
+                    Page {{ payment_list.number }} of {{ payment_list.paginator.num_pages }} |
                 </span>
                 {% endif %}
     
-                {% if payments.has_next %}
-                    <a href="?page={{ payments.next_page_number }}">next</a> |
-                    <a href="?page={{ payments.paginator.num_pages }}">last &raquo;</a>
+                {% if payment_list.has_next %}
+                    <a href="?page={{ payment_list.next_page_number }}">next</a> |
+                    <a href="?page={{ payment_list.paginator.num_pages }}">last &raquo;</a>
                 {% endif %}
             </span>
         </div>
     </div>
     <!--end of Pagination-->
+
+    <!--Pagination Class Based Views-->
+    {% if is_paginated %}
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                   <a href="?page=1">&laquo; first</a> |
+                   <a href="?page={{ payment_list.previous_page_number }}">previous</a> |
+                {% endif %}
+                
+                {% if page_obj.paginator.num_pages > 1 %}
+                <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+                </span>
+               {% endif %}
+
+               {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a> |
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+               {% endif %}
+            </span>
+        </div>
+    </div>
+    {% endif %}
+    <!--end of Pagination-->
+
 {% endblock %}

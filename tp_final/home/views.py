@@ -5,6 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 from customer.models import Customer
 from product.models import Product
+from payment.models import Payment
 
 def index(request):
     return render(

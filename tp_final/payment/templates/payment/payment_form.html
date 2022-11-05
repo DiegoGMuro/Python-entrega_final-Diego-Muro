@@ -1,8 +1,15 @@
 {% extends "home/index.html" %}
 {% load static %}
 
+<!-- ckeditor-->
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+{% endblock %}
+<!-- ckeditor-->
+
 {% block tp_final_title %}
-Payment
+Payment Create-Updtate
 {% endblock %}
 
 {% block tp_final_header %}
@@ -24,6 +31,7 @@ Payment
     <div>
         <form action="" method="POST">
             {% csrf_token %}
+            {{ form.media }} <!-- ckeditor-->
             {{ form.as_p }}
             <input type="submit" class="btn btn-primary" value="Guardar condicion de pago" />
         </form>
