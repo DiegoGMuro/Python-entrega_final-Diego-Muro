@@ -6,6 +6,7 @@ from django.shortcuts import render
 from customer.models import Customer
 from product.models import Product
 from payment.models import Payment
+from credit.models import Credit
 
 def index(request):
     return render(

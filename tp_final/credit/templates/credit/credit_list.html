@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tp_final_title %}
-Credit
+Credit list
 {% endblock %}
 
 {% block tp_final_header %}
@@ -22,11 +22,13 @@ Credit
 {% endblock %}
 
 {% block tp_final_content %}
-    {% for credit in credits %}
+    {% for credit in credit_list %}
         <!-- Post preview-->
         <div class="post-preview">
-            <h3 class="post-title"> Cod: {{ credit.code }} | Riesgo: {{ credit.description }}</h3>
-            <h5 class="post-subtitle"> Credito permitido ($): {{ credit.amount }}</h5>
+            <a href="{% url 'credit:credit-detail' credit.id %}">            
+                <h3 class="post-title"> Cod: {{ credit.code }} | Riesgo: {{ credit.description }}</h3>
+                <h5 class="post-subtitle"> Credito permitido ($): {{ credit.amount }}</h5>
+            </a>    
             <p class="post-meta">
                 Creado por
                 <a href="#!">Start Bootstrap</a> 
@@ -36,29 +38,57 @@ Credit
         <!-- Divider-->
         <hr class="my-4" />
     {% endfor %}
+
     <!--Pagination-->
     <div class="container p-4">
         <div class="pagination justify-content-center">
             <span class="step-links">
-                {% if credits.has_previous %}
+                {% if credit_list.has_previous %}
                     <a href="?page=1">&laquo; first</a> |
-                    <a href="?page={{ credits.previous_page_number }}">previous</a> |
+                    <a href="?page={{ credit_list.previous_page_number }}">previous</a> |
                 {% endif %}
     
-                {% if credits.paginator.num_pages > 1 %}
+                {% if credit_list.paginator.num_pages > 1 %}
                 <span class="current">
-                    Page {{ credits.number }} of {{ credits.paginator.num_pages }} |
+                    Page {{ credit_list.number }} of {{ credit_list.paginator.num_pages }} |
                 </span>
                 {% endif %}
     
-                {% if credits.has_next %}
-                    <a href="?page={{ credits.next_page_number }}">next</a> |
-                    <a href="?page={{ credits.paginator.num_pages }}">last &raquo;</a>
+                {% if credit_list.has_next %}
+                    <a href="?page={{ credit_list.next_page_number }}">next</a> |
+                    <a href="?page={{ credit_list.paginator.num_pages }}">last &raquo;</a>
                 {% endif %}
             </span>
         </div>
     </div>
     <!--end of Pagination-->
+
+    <!--Pagination Class Based Views-->
+    {% if is_paginated %}
+    <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a> |
+                    <a href="?page={{ credit_list.previous_page_number }}">previous</a> |
+                {% endif %}
+    
+                {% if page_obj.paginator.num_pages > 1 %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+                </span>
+                {% endif %}
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a> |
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    {% endif %}
+    <!--end of Pagination-->     
+
 {% endblock %}
 
 

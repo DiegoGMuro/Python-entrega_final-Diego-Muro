@@ -1,7 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 
+from credit.models import Credit
 
-class CreditForm(forms.Form):
+class CreditForm(forms.ModelForm):
     code = forms.IntegerField(
         label="Código:",
         required=False,
@@ -35,3 +37,6 @@ class CreditForm(forms.Form):
             }
         ),
     )    
+    class Meta:
+        model = Credit
+        fields = ["code", "description", "amount"]       

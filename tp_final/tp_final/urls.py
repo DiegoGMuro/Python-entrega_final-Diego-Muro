@@ -20,7 +20,8 @@ from customer.views import customer_create
 #from customer.views import create_customer
 from product.views import product_create
 #from product.views import create_product 
-from credit.views import create_credit
+from credit.views import credit_create
+#from credit.views import create_credit
 from payment.views import payment_create
 #from payment.views import create_payment
 
