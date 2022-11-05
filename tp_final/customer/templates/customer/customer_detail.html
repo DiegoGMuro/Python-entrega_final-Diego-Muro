@@ -36,11 +36,11 @@ Customer detail
     <p class="card-text ">{{ customer.description|safe }}</p> <!-- ckeditor-->
     <p style="text-align: center">
         <a href="{% url 'customer:customer-update' customer.id %}">
-            <i class="fa fa-pencil" style="color: #1c1c91;"></i> Editar
+            <i class="fa fa-pencil" style="color: #008000;"></i> Editar
         </a>
         &ensp; | &ensp;
         <a href="{% url 'customer:customer-delete' customer.id %}">
-            <i class="fa fa-trash" style="color: #881a1a;"></i> Eliminar 
+            <i class="fa fa-trash" style="color: #ff0000;"></i> Eliminar 
         </a>
     </p>
 </div>
