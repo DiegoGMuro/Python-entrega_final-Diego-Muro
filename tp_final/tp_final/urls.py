@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from customer.views import customer_create
+#from customer.views import customer_create
 #from customer.views import create_customer
-from product.views import product_create
+#from product.views import product_create
 #from product.views import create_product 
-from credit.views import credit_create
+#from credit.views import credit_create
 #from credit.views import create_credit
-from payment.views import payment_create
+#from payment.views import payment_create
 #from payment.views import create_payment
 
 urlpatterns = [
@@ -32,6 +32,7 @@ urlpatterns = [
     #path("create_customer/<int:code>/<str:name>/<str:email>/<str:segment>", create_customer, ),
     #path("create_payment/<int:code>/<str:name>/<int:days>", create_payment, ),
     #path("create_product/<int:code>/<str:description>/<int:unit_sales>", create_product, ),
+    path('accounts/', include('django.contrib.auth.urls')),
     path("credit/", include("credit.urls")),
     path("customer/", include("customer.urls")),
     path("payment/", include("payment.urls")),

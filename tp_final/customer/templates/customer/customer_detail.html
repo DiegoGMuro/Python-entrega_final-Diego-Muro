@@ -28,21 +28,48 @@ Customer detail
     <h3 class="post-subtitle">Código: {{ customer.code }}</h3>
     <p class="post-meta">
         Creado por
-        <a href="#!">Start Bootstrap</a> 
-        en {{ customer.created_at }}
+        <span style="color: #0b4956;" href="">{{ customer.owner.username }}</span>
+        ( {{ customer.created_at }} )
         <br>
         Última fecha de actualización {{ customer.updated_at }}
     </p>
     <p class="card-text ">{{ customer.description|safe }}</p> <!-- ckeditor-->
-    <p style="text-align: center">
-        <a href="{% url 'customer:customer-update' customer.id %}">
-            <i class="fa fa-pencil" style="color: #008000;"></i> Editar
-        </a>
-        &ensp; | &ensp;
-        <a href="{% url 'customer:customer-delete' customer.id %}">
-            <i class="fa fa-trash" style="color: #ff0000;"></i> Eliminar 
-        </a>
-    </p>
+
+    <!-- Update-Delete link only for the owner -->
+    {% if user == customer.owner or user.is_superuser %}    
+        <p style="text-align: center">
+            <a href="{% url 'customer:customer-update' customer.id %}">
+                <i class="fa fa-pencil" style="color: #008000;"></i> Editar cliente
+            </a>
+            &ensp; | &ensp;
+            <a href="{% url 'customer:customer-delete' customer.id %}">
+                <i class="fa fa-trash" style="color: #ff0000;"></i> Eliminar cliente
+            </a>
+        </p>
+    {% endif %}
+
+    <!-- Divider-->
+    <hr class="my-4" />
+
+    <!-- Comment creation -->
+    <form method="post" action="{% url 'customer:comment-create' customer.id %}">
+        {% csrf_token %}
+        {{ comment_form }}
+    <input type="submit" value="Publicar comentario">
+    </form>
+    {% if not comments %}
+        <p></p>
+    {% endif %}
+
+    <!-- Comments list -->
+    {% for comment in comments %}
+        <p> {{ comment.text }}
+            ({{ comment.owner.username }} | {{ comment.updated_at }})
+            {% if user == comment.owner or user.is_superuser %}
+            <a href="{% url 'customer:comment-delete' comment.id %}"><i class="fa fa-trash" style="color: #881a1a;"></i></a>
+            {% endif %}
+        </p>
+    {% endfor %}    
 </div>
 {% endblock %}
 
