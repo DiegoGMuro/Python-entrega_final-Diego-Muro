@@ -36,7 +36,8 @@ class ProductForm(forms.ModelForm):
                 "required": "True",
             }
         ),
-    )    
+    )
+    
     class Meta:
         model = Product
-        fields = ["code", "description", "unit_sales"]    
+        fields = ["code", "description", "unit_sales"]     
