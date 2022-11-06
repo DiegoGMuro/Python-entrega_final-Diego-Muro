@@ -177,7 +177,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("customer:customer-list")
 
     form_class = CustomerForm
-    # fields = ["code", "name", "email", "segment"]
+    # fields = ["code", "name", "email", "segment", "image"]
 
     def form_valid(self, form):
         """Filter to avoid duplicate customers"""
@@ -203,12 +203,14 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
 
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
-    fields = ["code", "name", "email", "segment"]
+    fields = ["code", "name", "email", "segment", "image"]
 
     def get_success_url(self):
         customer_id = self.kwargs["pk"]
         return reverse_lazy("customer:customer-detail", kwargs={"pk": customer_id})
 
+    #def post(self):
+        #pass
 
 class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer

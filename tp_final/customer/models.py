@@ -12,6 +12,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=40, null=False, blank=False)
     email = models.EmailField()
     segment = RichTextField(null=True, blank=True)
+    image = models.ImageField(upload_to='customer', null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     comments = models.ManyToManyField(
         User, through="Comment", related_name="comments_owned"

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tp_final_title %}
-Update User
+Avatar Load
 {% endblock %}
 
 {% block tp_final_header %}
@@ -11,24 +11,21 @@ Update User
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-15 col-lg-16 col-xl-14">
                 <div class="site-heading">
-                    <h3>Editar usuario</h3>
+                    <h1>Cargar Imagen de Avatar</h1>
                     <span class="subheading">Coder House 2022 - Python</span>
                 </div>
             </div>
         </div>
-        <a class="button_custom" href="{% url 'home:password-change' %}">Cambiar Password</a>
     </div>
 </header>
 {% endblock %}
 
+
 {% block tp_final_content %}
-
-<h3>Usuario: {{user.username}} | Nombre: {{user.first_name}} {{user.last_name}}</h3>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-primary" value="Guardar usuario" />
-</form>
-
+    <h1>Usuario: {{user.username}} | {{user.first_name}} {{user.last_name}}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Cargar Imagen</button>
+    </form>
 {% endblock %}

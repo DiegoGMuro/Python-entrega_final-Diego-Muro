@@ -6,7 +6,7 @@ Customer detail
 {% endblock %}
 
 {% block tp_final_header %}
-<header class="masthead" style="background-image: url('/static/home/assets/img/about-bg.jpg')">
+<header class="masthead" style="background-image: url('/static/home/assets/img/header-light.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-15 col-lg-16 col-xl-14">
@@ -31,8 +31,17 @@ Customer detail
         <span style="color: #0b4956;" href="">{{ customer.owner.username }}</span>
         ( {{ customer.created_at }} )
         <br>
-        Última fecha de actualización {{ customer.updated_at }}
+        Última fecha de actualización ( {{ customer.updated_at }} )
     </p>
+
+    <!-- Image -->
+    {% if customer.image %}
+        <div style="text-align: center;">
+            <img height="250px" src="{{ customer.image.url }}">
+        </div>
+    {% endif %}
+
+     <!-- Description -->
     <p class="card-text ">{{ customer.description|safe }}</p> <!-- ckeditor-->
 
     <!-- Update-Delete link only for the owner -->

@@ -1,3 +1,4 @@
+import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -6,19 +7,27 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 from django.core.paginator import Paginator
-# Create your views here.
+
 from customer.models import Customer
+from home.forms import AvatarForm
 from home.forms import UserRegisterForm
 from home.forms import UserUpdateForm
+from home.models import Avatar
 
 from product.models import Product
 from payment.models import Payment
 from credit.models import Credit
 
+def get_avatar_url_ctx(request):
+    avatars = Avatar.objects.filter(user=request.user.id)
+    if avatars.exists():
+        return {"avatar_url": avatars[0].image.url}
+    return {}
+
 def index(request):
     return render(
         request=request,
-        context={},
+        context=get_avatar_url_ctx(request),
         template_name="home/index.html",
     )
     
@@ -93,5 +102,29 @@ def user_update(request):
         context={"form": form},
         template_name="registration/user_form.html",
     )
-    
+
+@login_required
+def avatar_load(request):
+    if request.method == "POST":
+        form = AvatarForm(request.POST, request.FILES)
+        if form.is_valid and len(request.FILES) != 0:
+            image = request.FILES["image"]
+            avatars = Avatar.objects.filter(user=request.user.id)
+            if not avatars.exists():
+                avatar = Avatar(user=request.user, image=image)
+            else:
+                avatar = avatars[0]
+                if len(avatar.image) > 0:
+                    os.remove(avatar.image.path)
+                avatar.image = image
+            avatar.save()
+            messages.success(request, "Imagen cargada exitosamente")
+            return redirect("home:index")
+
+    form = AvatarForm()
+    return render(
+        request=request,
+        context={"form": form},
+        template_name="home/avatar_form.html",
+    )    
     

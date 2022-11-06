@@ -43,10 +43,11 @@ class CustomerForm(forms.ModelForm):
         required=False,
         widget=CKEditorWidget(),        
     )
- 
+    image = forms.ImageField()
+    
     class Meta:
         model = Customer
-        fields = ["code", "name", "email", "segment"]
+        fields = ["code", "name", "email", "segment", "image"]
         
 class CommentForm(forms.Form):
     comment_text = forms.CharField(

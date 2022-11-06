@@ -52,21 +52,28 @@
         </nav>
         {% block tp_final_header %}
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../../static/home/assets/img/head.jpg')">
+        <header class="masthead" style="background-image: url('../../static/home/assets/img/mayoristaSlider.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             {% if user.is_authenticated %}
-                                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-                                <h2>Bienvenido</h2>
+                                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                                <h3>Bienvenido</h3>
                             {% else %}
                             <h2>Entrega Final - Diego Muro</h2>
                             <span class="subheading"> Coder House 2022 - Python</span>
                             {% endif %}
+                            {% if avatar_url %}
+                                <a href="{% url 'home:avatar-load' %}"><img height="260px" src="{{avatar_url}}"></a>
+                            {% endif %}                            
                         </div>
                     </div>
                 </div>
+                <!-- <div style="background-color: #ffffff; width: 87%;" color>Avatar URL: {{ avatar_url }}</div> -->
+                {% if not avatar_url %}
+                    <a class="button_custom" href="{% url 'home:avatar-load' %}">Cargar Avatar</a>
+                {% endif %}                
             </div>
         </header>
         {% endblock %}
@@ -149,8 +156,8 @@
                             </a>     
                             <p class="post-meta">
                                 Creado por
-                                <a href="#!">Start Bootstrap</a> 
-                                en {{ product.created_at }}
+                                <span style="color: #0b4956;" href="">{{ product.owner.username }}</span>
+                                ( {{ product.created_at }} )
                             </p>
                         </div>
                         <!-- Divider-->
