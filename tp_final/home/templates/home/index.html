@@ -27,6 +27,8 @@
         <nav class="navbar navbar-expand-lg navbar-light topbar" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="{% url 'home:index' %}">Inicio</a>
+                <div class="topbar-divider d-none d-sm-block"></div>
+                <a class="navbar-brand" href="{% url 'home:index' %}">Acerca de mi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -100,8 +102,31 @@
                     <!-- Post preview-->
                     {% block tp_final_content %}
 
+                    <div class="w3-container w3-round-large w3-padding-16 w3-margin-top w3-margin-bottom">
+                        <div class="w3-card-4 w3-margin-top">
+                            <header class="w3-container", style="color:black(245, 245, 208)">
+                                <h1> Acerca de mi:</h1>                         
+                            </header>
+                            <div class="w3-container", style="color:black(245, 245, 208)">
+                                <h6>Siempre me han interesado particularmente todo tema relacionado con la tecnologia y puntualmente todo lo que tiene que ver con los datos.</h6>
+                                <h6>Este curso de Python es el tercero que tomo en Coder House (anteriormente hice el de Tableau y Testing QA manual).
+                                    Enfocandome siempre en los DATOS los proximos cursos a tomar seran de SQL, Data Analitics y Data Science.</h6>
+                                <h6>El presente blog es la entrega final del curso Python,donde utilizamos el Framework Django.
+                                    El mismo contiene informacion sobre una empresa distribuidora de alimentos. Las apps del blog son: Clientes - Productos - Limites de credito - Condiciones de pago.
+                                    En el trabajo se aplicacion los conocimientos adquiridos en el curso como: Programacion en Python, Utilizacion de formularios, CRUD, aplicacion de statics, herencias, clases, Login, logout, creacion de usuarios, utilizacion de avatars, unit tests, utilizacion de Git y Github etc. 
+                                </h6>
+                            </div>
+                    </div>    
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <hr class="my-4" />       
+
                     <!-- Buscador -->
-                    <h3>Buscador de clientes</h3>
+                    <h1>Buscadores</h1>
+
+                    <hr class="my-4" />
+
+                    <h4>Clientes</h4>
                     <form action="{% url 'home:searchc' %}" method="GET">
                         <div>
                             <input type="text" name="search_customer" id="customer_code_or_name" placeholder="Buscar.."
@@ -131,8 +156,8 @@
                         <!-- Divider-->
                         <hr class="my-4" />
                     {% endfor %}
-                    {% endif %}
-                    <h3>Buscador de Productos</h3>
+                    {% endif %}                    
+                    <h4>Productos</h4>
                     <form action="{% url 'home:searchp' %}" method="GET">
                         <div>
                             <input type="text" name="search_product" id="product_code_or_description" placeholder="Buscar.."
@@ -143,6 +168,7 @@
                         </div>
                     </form>
                     <!-- Divider-->
+                    <hr class="my-4" />
                     <hr class="my-4" />
 
                     <!-- Si hay resultados en el buscador los presenta -->
@@ -227,7 +253,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Diego Muro | all rights reserved</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; 2022 | Diego Muro | all rights reserved</div>
                     </div>
                 </div>
             </div>
