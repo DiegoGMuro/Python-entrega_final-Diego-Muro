@@ -69,18 +69,20 @@ Las aplicaciones en las que se dividio la pagina son :
 
 La seccion de HOME tiene el buscador de CLIENTES y PRODUCTOS
 
-![image](https://user-images.githubusercontent.com/113110798/199346071-1aa5c572-ac0b-41bc-abd8-6a98f44c9b18.png)
+![2022-11-06 01 05 56](https://user-images.githubusercontent.com/113110798/200153769-20319121-ef5e-4db9-bdcf-943651c8e2c6.jpg)
 
 
 Cada aplicacion (CLIENTES / PRODUCTOS / LIMITES DE CREDITO / CONDICIONES DE PAGO) Contiene la informacion de cada aplicacion
 
-![image](https://user-images.githubusercontent.com/113110798/199346390-57a9ca9d-0564-4aba-a7d1-c64865e43d4b.png)
+![image](https://user-images.githubusercontent.com/113110798/200153845-044eff32-3039-4c70-b4f5-83e9effb48be.png)
+
+![image](https://user-images.githubusercontent.com/113110798/200153871-77a8d59e-4c78-48c9-998f-d007a7a9caf0.png)
 
 
 
 La misma fue cargada a la BD tanto por los formularios de la pagina como por el menu ADMIN de Django
 
-![image](https://user-images.githubusercontent.com/113110798/199346592-7dff7a3a-a680-44e2-b0ec-b14b62b8b3fc.png)
+![image](https://user-images.githubusercontent.com/113110798/200153899-0be3c4a2-9e8c-4a02-b714-a184d04272fc.png)
 
 
 ![image](https://user-images.githubusercontent.com/113110798/198755229-0bf2e7e7-99e7-4f76-844a-c14baf9adcf9.png)
