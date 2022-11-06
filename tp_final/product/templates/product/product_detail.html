@@ -36,11 +36,11 @@ Product detail
     <p class="card-text ">{{ product.description|safe }}</p> <!-- ckeditor-->
     <p style="text-align: center">
         <a href="{% url 'product:product-update' product.id %}">
-            <i class="fa fa-pencil" style="color: #008000;"></i> Editar
+            <i class="fa fa-pencil" style="color: #008000;"></i> Editar producto
         </a>
         &ensp; | &ensp;
         <a href="{% url 'product:product-delete' product.id %}">
-            <i class="fa fa-trash" style="color: #ff0000;"></i> Eliminar 
+            <i class="fa fa-trash" style="color: #ff0000;"></i> Eliminar producto 
         </a>
     </p>
 </div>
