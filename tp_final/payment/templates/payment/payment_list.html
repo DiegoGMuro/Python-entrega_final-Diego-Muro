@@ -27,7 +27,7 @@ Payment list
         <!-- Post preview-->
         <div class="post-preview">
             <a href="{% url 'payment:payment-detail' payment.id %}">  
-                <h3 class="post-title"> Cod: {{ payment.code }} | Cond Pago: {{ payment.name }}</h3>
+                <h5 class="post-sutitle"> Cod: {{ payment.code }} | Cond Pago: {{ payment.name }}</h5>
                 <h5 class="post-subtitle">Dias permitidos: {{ payment.days }}</h5>
             </a>     
             <p class="post-meta">

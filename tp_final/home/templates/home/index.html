@@ -149,7 +149,8 @@
                         <!-- Post preview-->
                         <div class="post-preview">
                             <a href="{% url 'customer:customer-detail' customer.id %}">                            
-                                <h6 class="post-title"> Cod: {{ customer.code }} | Cliente {{ customer.name }}</h6>
+                                <h5 class="post-sutitle"> Cod: {{ customer.code }} | Cliente {{ customer.name }}</h5>
+                                <h5 class="post-subtitle"> Email: {{ customer.email }} </h5>
                             </a>                            
                             <p class="post-meta">
                                 Creado por
@@ -181,7 +182,7 @@
                         <!-- Post preview-->
                         <div class="post-preview">
                             <a href="{% url 'product:product-detail' product.id %}">
-                                 <h3 class="post-title">Cod: {{ product.code }} | Producto: {{ product.description }} </h3>
+                                 <h5 class="post-sutitle">Cod: {{ product.code }} | Producto: {{ product.description }} </h5>
                                  <h5 class="post-subtitle">Unidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
                             </a>     
                             <p class="post-meta">
@@ -203,19 +204,19 @@
                             <div class="pagination justify-content-center">
                                 <span class="step-links">
                                     {% if page_obj.has_previous %}
-                                        <a href="?page=1">&laquo; first</a> |
-                                        <a href="?page={{ customer_list.previous_page_number }}">previous</a> |
+                                        <a href="?page=1">&laquo; Primera</a> |
+                                        <a href="?page={{ customer_list.previous_page_number }}">previa</a> |
                                     {% endif %}
                         
                                     {% if page_obj.paginator.num_pages > 1 %}
                                     <span class="current">
-                                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} |
+                                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} |
                                     </span>
                                     {% endif %}
                         
                                     {% if page_obj.has_next %}
-                                        <a href="?page={{ page_obj.next_page_number }}">next</a> |
-                                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                        <a href="?page={{ page_obj.next_page_number }}">proxima</a> |
+                                        <a href="?page={{ page_obj.paginator.num_pages }}">ultima &raquo;</a>
                                     {% endif %}
                                 </span>
                             </div>
@@ -287,7 +288,8 @@
                                         <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
-                            </li>                                                                                                                   
+                            </li>
+                        </li>                                                                                                                                                
                         </ul>
                         <div class="small text-center text-muted fst-italic">Copyright &copy; 2022 | Diego Muro | all rights reserved</div>
                     </div>

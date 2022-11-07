@@ -141,7 +141,7 @@ from credit.models import Credit
 
 class CreditListView(ListView):
     model = Credit
-    paginate_by = 3
+    paginate_by = 8
 
 
 class CreditDetailView(DetailView):

@@ -74,7 +74,7 @@ Las aplicaciones en las que se dividio la pagina son :
 * Productos
 * Limites de credito
 * Condiciones de pago
-* Home
+
 ```
 
 La seccion de HOME tiene el buscador de CLIENTES y PRODUCTOS

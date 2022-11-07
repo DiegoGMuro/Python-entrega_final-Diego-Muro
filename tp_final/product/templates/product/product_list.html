@@ -26,7 +26,7 @@ Product list
         <!-- Post preview-->
         <div class="post-preview">
             <a href="{% url 'product:product-detail' product.id %}"> 
-                <h3 class="post-title"> Cod: {{ product.code }} | Producto: {{ product.description }}</h3>
+                <h5 class="post-sutitle"> Cod: {{ product.code }} | Producto: {{ product.description }}</h5>
                 <h5 class="post-subtitle"> Unidades vendidas ultimo mes: {{ product.unit_sales }}</h5>
             </a>
             <p class="post-meta">

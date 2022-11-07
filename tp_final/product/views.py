@@ -141,7 +141,7 @@ from product.models import Product
 
 class ProductListView(ListView):
     model = Product
-    paginate_by = 3
+    paginate_by = 8
 
 
 class ProductDetailView(DetailView):

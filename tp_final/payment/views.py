@@ -141,7 +141,7 @@ from payment.models import Payment
 
 class PaymentListView(ListView):
     model = Payment
-    paginate_by = 3
+    paginate_by = 8
 
 
 class PaymentDetailView(DetailView):

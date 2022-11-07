@@ -26,7 +26,7 @@ Credit list
         <!-- Post preview-->
         <div class="post-preview">
             <a href="{% url 'credit:credit-detail' credit.id %}">            
-                <h3 class="post-title"> Cod: {{ credit.code }} | Riesgo: {{ credit.description }}</h3>
+                <h5 class="post-sutitle"> Cod: {{ credit.code }} | Riesgo: {{ credit.description }}</h5>
                 <h5 class="post-subtitle"> Credito permitido ($): {{ credit.amount }}</h5>
             </a>    
             <p class="post-meta">

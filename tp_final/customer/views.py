@@ -151,7 +151,7 @@ from customer.models import Customer
 
 class CustomerListView(ListView):
     model = Customer
-    paginate_by = 3
+    paginate_by = 8
 
 
 class CustomerDetailView(DetailView):
