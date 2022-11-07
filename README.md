@@ -2,13 +2,23 @@
 
 # Instrucciones para ejecutar este proyecto:
 
-
+- Crear Directorio del proyecto
 ### 1. Abrir Git Bash para `Windows` o una terminal para `Linux/Unix`.
 
-### 2. Clonar el proyecto
+### 2. Crear directorio de trabajo para el proyecto del curso 
+```bash
+cd
+mkdir -p Entrega_Final/coder_projects
+cd Entrega_final/coder_projects
+ls 
+```
 
+- Clonar el proyecto
 ```bash
 git clone https://github.com/DiegoGMuro/entrega_final-Diego-Muro.git
+
+cd entrega_final-Diego-Muro
+
 ```
 
 
