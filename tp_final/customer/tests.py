@@ -39,6 +39,8 @@ class CustomerTestCase(TestCase):
         for mock_name, mock_code in zip(self.mock_names, self.mock_codes):
             Customer.objects.create(name=mock_name, code=mock_code, owner=self.test_user)
 
+
+#test1
     def test_customer_model(self):
         """Customers creation are correctly identified"""
         Supermercado1_customer = Customer.objects.get(name="Supermercado1")
@@ -48,8 +50,24 @@ class CustomerTestCase(TestCase):
         self.assertEqual(Supermercado1_customer.code, 19)
         self.assertEqual(Supermercado2_customer.code, 15)
 
+
+#test2
     def test_customer_list(self):
         for mock_name, mock_code in zip(self.mock_names, self.mock_codes):
             customer_test = Customer.objects.get(name=mock_name)
             self.assertEqual(customer_test.owner.username, "User1")
             self.assertEqual(customer_test.code, mock_code)
+
+
+ #Se crea caso de test para probar la creacion CLIENTES
+ 
+KEY_LEN = 4
+char_list = [random.choice(string.digits) for _ in range(KEY_LEN)]
+codcli = ''.join(char_list)
+print(f'----------> CLIENTES: Resultado de TEST CASE: Cod {codcli} Asignado a un nuevo cliente')
+        
+
+customer = Customer(
+code = codcli,
+name="name",
+)
