@@ -65,7 +65,8 @@ python manage.py runserver
 
 # Descripcion del proyecto
 
-El presente blog brinda informacion de una empresa de Distribuidora de alimentos que provee a cadenas grandes y medianas de supermercados, asi como mayoristas y almacenes de barrio.
+El presente blog es la entrega final del curso Python, donde hemos utilizado el Framework Django. En el trabajo se aplicaron los conocimientos adquiridos en el curso, entre otros: Programacion en Python, Modelo MVT de Django, Clases, Herencias, Html, Utilizacion de formularios, CRUD, aplicacion de statics, Login, logout, creacion de usuarios, utilizacion de avatars, unit tests, utilizacion de Git y Github etc.
+El mismo contiene informacion sobre una empresa distribuidora de alimentos de la Republica Argentina, la cual abastece grandes cadenas de supermercados y a mayoristas.
 
 Las aplicaciones en las que se dividio la pagina son : 
 
@@ -77,37 +78,42 @@ Las aplicaciones en las que se dividio la pagina son :
 
 ```
 
-La seccion de HOME tiene el buscador de CLIENTES y PRODUCTOS
+La pagina posee un " acerca de mi" donde se cuenta un poco el perfil del creador de la misma como asi tambien el objeto del blog
 
-![2022-11-06 01 05 56](https://user-images.githubusercontent.com/113110798/200153769-20319121-ef5e-4db9-bdcf-943651c8e2c6.jpg)
+![image](https://user-images.githubusercontent.com/113110798/200947916-8c2ca6df-3f46-4e04-9396-cc4d76e1f210.png)
 
+La seccion de INICIO tambien tiene un buscador de CLIENTES y PRODUCTOS, como asi tambien acceso a todas las redes sociales
 
-Cada aplicacion (CLIENTES / PRODUCTOS / LIMITES DE CREDITO / CONDICIONES DE PAGO) Contiene la informacion de cada aplicacion
-
-![image](https://user-images.githubusercontent.com/113110798/200153845-044eff32-3039-4c70-b4f5-83e9effb48be.png)
-
-![image](https://user-images.githubusercontent.com/113110798/200153871-77a8d59e-4c78-48c9-998f-d007a7a9caf0.png)
+![image](https://user-images.githubusercontent.com/113110798/200948168-2e60906f-2ae6-4f2f-b1f2-62d24a78bd26.png)
 
 
+Cada aplicacion (CLIENTES / PRODUCTOS / LIMITES DE CREDITO / CONDICIONES DE PAGO) Contiene la informacion relevante para los usuarios y en el caso de CLIENTES tambien hay fotos y una breve resena del cliente, asi como tambien una caja de comentarios para que los usuarios vayan dejando sus valoraciones sobre el mismo.
 
-La misma fue cargada a la BD tanto por los formularios de la pagina como por el menu ADMIN de Django
+![image](https://user-images.githubusercontent.com/113110798/200948938-bb367c78-9acd-48a1-b5f1-057e05ed5e0e.png)
 
-![image](https://user-images.githubusercontent.com/113110798/200153899-0be3c4a2-9e8c-4a02-b714-a184d04272fc.png)
+![image](https://user-images.githubusercontent.com/113110798/200949005-8c258b4f-4632-4d7a-b454-2f602ffad452.png)
+
+![image](https://user-images.githubusercontent.com/113110798/200949196-45cd4d31-c0f0-4fe4-90b8-fa49b83b0651.png)
+
+![image](https://user-images.githubusercontent.com/113110798/200949312-ba0fcc9e-2f74-465b-b33d-fe18f9df92f4.png)
 
 
-![image](https://user-images.githubusercontent.com/113110798/198755229-0bf2e7e7-99e7-4f76-844a-c14baf9adcf9.png)
 
-Se recomienda hacer 5 tipos de prueba
 
-```bash
-* Buscar algun cliente por el buscador
-* Ingresar informacion a la BBDD en alguna de las APPs desde los formularios
-* Ingresar informacion a la BBDD desde el menu ADMIN de Django
-* Chequear con SQLITE desde VSC alguna de las bases de datos
-```
-![image](https://user-images.githubusercontent.com/113110798/198755341-6c2bb461-bbfb-4685-bbb5-3f50697bd41f.png)
+Los datos (Clientes / Productos / Condiciones de pago / Limite de credito) fueron cargados por los usuarios desde los formularios de cada app asi como tambien por el administrador en el ADMIN de Django
+El blog da la posibilidad de hacer un CRUD (Create - Read - Update - Delete) a los usuarios. Pero para el caso de la app CLIENTES el Update y Delete solo los usuarios que crearon los datos pueden realizarlo. La excepcion es el ADMIN que puede accionar en toda la BBDD
 
-```bash
-* Chequear con SQLITE las bases de datos 
-```
-![image](https://user-images.githubusercontent.com/113110798/198755394-32c46154-c832-4f9d-a006-1c1cf14f31cf.png)
+Los comentarios pueden ser cargados por cualquier usuario sin distincion de perfil, pero el borrado solo lo puede hacer el autor.
+
+![image](https://user-images.githubusercontent.com/113110798/200950154-d48806f2-18c3-4e4f-b0a0-4574b4e16269.png)
+
+El blog permite la carga de nuevos usuarios, avatars, menu de cambio de contrasenas, etc
+![image](https://user-images.githubusercontent.com/113110798/200951284-afa9b548-4c1d-49eb-9f67-e8945f2de53a.png)
+
+Ademas desde VSC se cargaron 6 casos de unit test, los cuales se encuentran en el archivo " test.py" de cada APP
+
+![image](https://user-images.githubusercontent.com/113110798/200951600-dfc4c6d9-c75a-4f61-aa15-729920e06308.png)
+
+
+
+
