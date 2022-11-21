@@ -78,6 +78,15 @@ Las aplicaciones en las que se dividio la pagina son :
 
 ```
 
+Links a videos con la pagina Web funcionando : 
+
+```bash
+https://www.loom.com/share/a97256d65cfa42808bfbb5f06ba37290
+
+https://www.loom.com/share/62263bb5804f4ebb9eb6fa954816ad73
+
+```
+
 La pagina posee un " acerca de mi" donde se cuenta un poco el perfil del creador de la misma como asi tambien el objeto del blog
 
 ![image](https://user-images.githubusercontent.com/113110798/200947916-8c2ca6df-3f46-4e04-9396-cc4d76e1f210.png)
