@@ -15,7 +15,7 @@ ls
 
 - Clonar el proyecto
 ```bash
-git clone https://github.com/DiegoGMuro/entrega_final-Diego-Muro.git
+git clone https://github.com/DiegoGMuro/Python-entrega_final-Diego-Muro.git
 
 cd entrega_final-Diego-Muro
 
