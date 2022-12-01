@@ -17,7 +17,7 @@ ls
 ```bash
 git clone https://github.com/DiegoGMuro/Python-entrega_final-Diego-Muro.git
 
-cd entrega_final-Diego-Muro
+cd Python-entrega_final-Diego-Muro
 
 ```
 
